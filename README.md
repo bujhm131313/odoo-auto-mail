@@ -1,0 +1,1 @@
+# odoo-auto-mail
