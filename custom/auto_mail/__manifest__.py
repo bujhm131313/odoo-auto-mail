@@ -22,5 +22,7 @@
     'data': [
         # 'security/ir.model.access.csv',
         'views/res_partner.xml',
+
+        'data/ir_actions_server.xml',
     ],
 }

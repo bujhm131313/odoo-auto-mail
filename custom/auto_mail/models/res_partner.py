@@ -10,3 +10,7 @@ class ResPartner(models.Model):
         [('math', 'Математика'),
          ('literature', 'Литература'),
          ], string='Предметы')
+
+    @api.model
+    def process_message(self, *args, **kwargs):
+        pass
