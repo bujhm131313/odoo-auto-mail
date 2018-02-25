@@ -17,7 +17,18 @@ class ResPartner(models.Model):
     def message_new(self, msg_dict, custom_values=None):
         if msg_dict.get('email_from') == FROM:
             partner_values = self.msg_parse(msg_dict.get('body'))
-            res_id = self.create(partner_values).id
+
+            # Find partners with current email
+            existing_partner = self.search([
+                ('email', '=', partner_values.get('email')
+                 )])
+
+            if existing_partner:
+                existing_partner.write(partner_values)
+                res_id = existing_partner.ids[0]
+            else:
+                res_id = self.create(partner_values).id
+
         else:
             res_id = super(ResPartner, self).message_new(
                 msg_dict, custom_values)
