@@ -33,6 +33,10 @@ class ResPartner(models.Model):
             res_id = super(ResPartner, self).message_new(
                 msg_dict, custom_values)
 
+        # Send email
+        template = self.env.ref('auto_mail.response_template')
+        template.send_mail(res_id)
+
         return res_id
 
     @staticmethod

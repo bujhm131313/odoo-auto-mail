@@ -24,5 +24,6 @@
         'views/res_partner.xml',
 
         'data/ir_actions_server.xml',
+        'data/mail_template.xml',
     ],
 }
